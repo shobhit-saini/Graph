@@ -41,18 +41,18 @@ int DFT(vector<int>adj[], int V, int S, int *visited)
 		{
 			visited[*itr] = 1;
 			j++;
-			cout << j << "\t";
+		//	cout << *itr << ":" << j << "\t";
 			DFT(adj, V, *itr, visited);
 		}
 	}
-	//cout << S << "\t"<< strlen(str.c_str()) << "\n";
+	
 	if(j == V)
 	{
-		cout << "hi";
 		return 1;
 	}
-	else
+	else 
 		return -1;
+
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////Main Function///////////////////////////////////////////////////////////////////////////////////////////
@@ -76,18 +76,18 @@ int main()
 	}
 	
 	print_graph(adj, V);
-	
-	//cout << "Enter the starting vertex:";
-	//cin >> S;
-	//int visited[V] = {0};
+
 
 	for(i = 0; i < V; i++)
 	{
 		int visited[V] = {0};
+		
 		visited[i] = 1;
-		j = 0;
-		//cout << S << "\t";
-		x = DFT(adj,  V, S, visited);
+		j = 1;
+		//cout << i << ":";
+		
+		x = DFT(adj,  V, i, visited);
+	//	cout<< "\n";
 		if(x == 1)
 		{
 			cout << "Mother found:" << i ;
@@ -95,5 +95,5 @@ int main()
 		}
 		x = 0;
 	}
-	cout << "Mother not found:";	
+	cout << "Mother not found";	
 }
